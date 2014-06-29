@@ -451,6 +451,7 @@ var LiteFM = (function(){
 			HAE.removeData('token');
 			HAE.removeData('expire');
 			HAE.removeData('user_id');
+			$('.like').removeClass('liked');
 		};
 
 		return {
