@@ -373,9 +373,9 @@ var LiteFM = (function(){
 				data.user_id = user_id;
 				menu.login.setVisible(false);
 			}else{
-				$('#email').val(email);
 				menu.logout.setVisible(false);
 			}
+			$('#email').val(email);
 		};
 
 		var initEvent = function(){
@@ -440,8 +440,9 @@ var LiteFM = (function(){
 		};
 
 		var logout = function(){
-			if(data.channel < 1){
-				playChannel(1);
+			var channel = data.channel;
+			if(channel < 1){
+				channel = 1;
 			}
 			menu.login.setVisible(true);
 			menu.logout.setVisible(false);
@@ -451,7 +452,7 @@ var LiteFM = (function(){
 			HAE.removeData('token');
 			HAE.removeData('expire');
 			HAE.removeData('user_id');
-			$('.like').removeClass('liked');
+			playChannel(channel);
 		};
 
 		return {
