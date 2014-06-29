@@ -1,0 +1,9 @@
+{
+	"name": "Light FM",
+	"version": "1.0.0",
+	"description": "A light FM player",
+	"path": "assets/",
+	"icon": "assets/icon.ico",
+	"visible": false,
+	"frameless": true
+}

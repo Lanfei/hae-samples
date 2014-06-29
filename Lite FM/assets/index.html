@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<title>轻 · 电台</title>
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+	<div id="channels">
+		<div id="banner"></div>
+		<ul id="list"></ul>
+	</div>
+	<div id="player">
+		<span id="title"></span>
+		<div id="picture"></div>
+		<div id="controls">
+			<a class="button close"></a>
+			<a class="button like"></a>
+			<a class="button play"></a>
+			<a class="button skip"></a>
+			<a class="button list"></a>
+		</div>
+		<div id="login">
+			<form id="form">
+				<input id="email" class="item" type="text" placeholder="邮箱/用户名">
+				<input id="password" class="item" type="password" placeholder="密码">
+				<input id="cancel" class="button" type="button" value="返回">
+				<input id="submit" class="button" type="submit" value="登陆">
+			</form>
+		</div>
+	</div>
+	<script src="jquery-2.1.1.min.js"></script>
+	<script src="litefm.js"></script>
+</body>
+</html>
