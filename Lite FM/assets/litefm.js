@@ -162,9 +162,9 @@ var LiteFM = (function(){
 			mousewheel: function(event){
 				var volume = audio.volume;
 				if(event.originalEvent.wheelDelta > 0){
-					volume += 0.1;
+					volume += 0.05;
 				}else{
-					volume -= 0.1;
+					volume -= 0.05;
 				}
 				if(volume < 0){
 					volume = 0;
