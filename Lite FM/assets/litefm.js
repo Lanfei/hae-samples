@@ -117,8 +117,11 @@ var LiteFM = (function(){
 		});
 		$(document).bind({
 			keydown: function(event){
-				if(event.keyCode == 123){
+				var keyCode = event.keyCode;
+				if(keyCode == 123){
 					app.showInspector();
+				}else if(keyCode == 112){
+					playMusic(prompt('想听什么歌呢？'));
 				}
 			},
 			mousedown: function(event){
@@ -288,7 +291,10 @@ var LiteFM = (function(){
 		}
 	};
 
-	var play = function(name){
+	var playMusic = function(name){
+		if(! name){
+			return;
+		}
 		$.ajax({
 			url: 'http://sug.music.baidu.com/info/suggestion',
 			dataType: 'json',
@@ -313,6 +319,8 @@ var LiteFM = (function(){
 						backgroundImage: 'url(' + song.picture + ')'
 					});
 					$('#player').prop('title', '『' + song.title + '』- ' + song.artist);
+				}else{
+					alert('未找到《' + name + '》');
 				}
 			}
 		});
@@ -696,7 +704,6 @@ var LiteFM = (function(){
 	})();
 
 	return {
-		main: main,
-		play: play
+		main: main
 	};
 })();
