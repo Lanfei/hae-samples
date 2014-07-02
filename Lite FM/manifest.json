@@ -1,7 +1,7 @@
 {
-	"name": "Light FM",
+	"name": "Lite FM",
 	"version": "1.0.0",
-	"description": "A light FM player",
+	"description": "A lightweight FM player",
 	"path": "assets/",
 	"icon": "assets/icon.ico",
 	"visible": false,
