@@ -122,6 +122,8 @@ var LiteFM = (function(){
 					app.showInspector();
 				}else if(keyCode == 112){
 					playMusic(prompt('想听什么歌呢？'));
+				}else if(keyCode == 113){
+					searchChannel(prompt('想听什么电台呢？'));
 				}
 			},
 			mousedown: function(event){
@@ -320,7 +322,7 @@ var LiteFM = (function(){
 					});
 					$('#player').prop('title', '『' + song.title + '』- ' + song.artist);
 				}else{
-					alert('未找到《' + name + '》');
+					alert('未找到歌曲《' + name + '》');
 				}
 			}
 		});
@@ -339,6 +341,29 @@ var LiteFM = (function(){
 					audio.src = suggestion.songLink;
 					audio.play();
 					Lyric.load('http://play.baidu.com' + suggestion.lrcLink);
+				}
+			}
+		});
+	};
+
+	var searchChannel = function(name){
+		if(! name){
+			return;
+		}
+		$.ajax({
+			url: 'http://douban.fm/j/explore/search',
+			dataType: 'json',
+			data: {
+				limit: 1,
+				query: name
+			},
+			success: function(json){
+				var channel;
+				var channels = json.data.channels;
+				if(channel = channels[0]){
+					playChannel(channel.id);
+				}else{
+					alert('未找到电台《' + name + '》');
 				}
 			}
 		});
