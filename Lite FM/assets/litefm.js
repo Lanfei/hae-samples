@@ -58,12 +58,14 @@ var LiteFM = (function(){
 		menu.lyric = new HAE.MenuItem('歌词');
 		menu.login = new HAE.MenuItem('登陆');
 		menu.logout = new HAE.MenuItem('登出');
+		menu.blog = new HAE.MenuItem('博客');
 		menu.exit = new HAE.MenuItem('退出');
 		menu.lyric.setCheckable(true);
 		menu.addItem(menu.toggle);
 		menu.addItem(menu.lyric);
 		menu.addItem(menu.login);
 		menu.addItem(menu.logout);
+		menu.addItem(menu.blog);
 		menu.addItem(menu.exit);
 
 		tray.setToolTip(document.title);
@@ -91,6 +93,9 @@ var LiteFM = (function(){
 		menu.lyric.addEvent({trigger: Lyric.toggle});
 		menu.login.addEvent({trigger: Account.login});
 		menu.logout.addEvent({trigger: Account.logout});
+		menu.blog.addEvent({trigger: function(){
+			HAE.browse('http://www.clanfei.com');
+		}});
 		menu.exit.addEvent({trigger: exit});
 		tray.addEvent({
 			activate: function(reason){
